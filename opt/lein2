@@ -66,7 +66,7 @@ else
         -Dmaven.wagon.http.ssl.easy=false \
         -Dmaven.wagon.rto=10000 \
         -Dleiningen.original.pwd="$PWD" \
-        -Dleiningen.trampoline-file="$TRAMPOLINE_FILE" \
+#        -Dleiningen.trampoline-file="$TRAMPOLINE_FILE" \
         -cp "$CLASSPATH" \
         clojure.main -m leiningen.core.main "$@"
 fi
