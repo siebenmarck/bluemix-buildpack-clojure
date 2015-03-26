@@ -58,8 +58,7 @@ else
         -Dleiningen.original.pwd="$PWD" \
         -Dleiningen.trampoline-file="$TRAMPOLINE_FILE" \
         -cp "$CLASSPATH" \
-        clojure.main -m leiningen.core.main "$@" > /tmp/output
-    cat /tmp/output
+        clojure.main -m leiningen.core.main "$@"
 fi
 
 EXIT_CODE=$?
