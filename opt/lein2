@@ -48,6 +48,16 @@ else
     echo $LEIN_JAVA_CMD
     echo $TRAMPOLINE_FILE
     cat $TRAMPOLINE_FILE
+    echo  $LEIN_JAVA_CMD \
+        -XX:+TieredCompilation \
+        $LEIN_JVM_OPTS \
+        -Dfile.encoding=UTF-8 \
+        -Dmaven.wagon.http.ssl.easy=false \
+        -Dmaven.wagon.rto=10000 \
+        -Dleiningen.original.pwd="$PWD" \
+        -Dleiningen.trampoline-file="$TRAMPOLINE_FILE" \
+        -cp "$CLASSPATH" \
+        clojure.main -m leiningen.core.main "$@"
     export TRAMPOLINE_FILE
     $LEIN_JAVA_CMD \
         -XX:+TieredCompilation \
