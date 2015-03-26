@@ -45,6 +45,7 @@ if [ "$INPUT_CHECKSUM" != "" ] && [ -r "$TRAMPOLINE_FILE" ]; then
     exec sh -c "exec $(cat $TRAMPOLINE_FILE)"
 else
     echo "-----> Starting application"
+    echo $LEIN_JAVA_CMD
     export TRAMPOLINE_FILE
     $LEIN_JAVA_CMD \
         -XX:+TieredCompilation \
